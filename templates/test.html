@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Referral code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="/static/style_one.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container">
+  <div class="align-items-center p-3 my-3 text-white-50 bg-purple">
+    <div class="lh-100">
+      <h2 class="mb-0 text-white lh-100 text-center">Code for {{ .Company.Name}}</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Add your referral code</h5>
+          <form class="bg-white">
+          <div class="form-row">
+            <div class="col-6 col-md-4 col-xs-4 mb-3">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="col-6 col-md-4 col-xs-4 mb-3">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="col-6 col-md-4 col-xs-4 mb-3">
+                  <label></label>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+          </form>
+    </div>
+  </div>
+
+    {{ with .Codes }}
+        {{ range . }}
+        <div class="card bg-white">
+          <div class="card-body">
+             <div class="row">
+             </br>
+                <div class="col-6 col-md-4 col-xs-4 card-text"><h4>{{ .Text }}</h4></div>
+                <div class="col-6 col-md-4 col-xs-4"><h4><a href="#" class="card-link">{{ .Link }}</a></h4></div>
+             </div>
+          </div>
+        </div>
+        {{ end }}
+    {{ end }}
+</div>
+</body>
+</html>

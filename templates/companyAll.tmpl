@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Referral code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link href="/static/style_one.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="nav-scroller box-shadow row ml-05 mr-05">
+    <nav class="nav nav-underline">
+        <a class="nav-link font-weight-bold col-3 col-md-3 col-xs-3 active" href="/">Home</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="#">Profile</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="/client/logout">Logout</a>
+    </nav>
+</div>
+<div class="container pl-05 pr-05">
+  <div class="box-shadow">
+      <h2 class="text-capitalize ml-05 text-white lh-100">List of all companies</h2>
+    </div>
+    {{ with .List }}
+        {{ range . }}
+        <div class="card bg-white box-shadow">
+          <div class="card-body pl-05 pr-05 pb-02">
+            <h4 class="card-title text-capitalize pt-02">{{ .Name }}</h4>
+                <p class="card-text text-capitalize">{{ .Details }}</p>
+                <a href="/company/view/{{ .ID }}" class="card-link">Use or Share </a>
+          </div>
+        </div>
+        {{ end }}
+    {{ end }}
+    </br>
+</div>
+</body>
+</html>

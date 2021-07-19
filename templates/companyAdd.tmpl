@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Referral code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link href="/static/style_one.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="nav-scroller box-shadow row ml-05 mr-05">
+    <nav class="nav nav-underline">
+        <a class="nav-link font-weight-bold col-3 col-md-3 col-xs-3 active" href="/">Home</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="#">Profile</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="/client/logout">Logout</a>
+    </nav>
+</div>
+<div class="container">
+    <div class="card bg-white box-shadow text-capitalize">
+        <div class="card-body pb-02 pt-02 ml-05 mr-05">
+            <h5 class="card-subtitle text-capitalize">Form to create a company</h5>
+            <form action="/admin/company/create" method="post">
+                <div class="form">
+                    <div class="form-group">
+                    <label for="Name">Name</label>
+                        <input type="text" class="form-control" name="Name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Details">Details</label>
+                        <input type="text" class="form-control" name="Details" placeholder="Details">
+                    </div>
+                    <div class="form-group">
+                        <label for="Signup">Signup</label>
+                        <input type="text" class="form-control" name="Signup" placeholder="Sign-Up Benefit">
+                    </div>
+                    <div class="form-group">
+                        <label for="Referral">Referral</label>
+                        <input type="text" class="form-control" name="Referral" placeholder="Referral Benefit">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                    </br>
+                    </br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

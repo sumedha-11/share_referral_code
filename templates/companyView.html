@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Referral code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link href="/static/style_one.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="nav-scroller box-shadow row ml-05 mr-05">
+    <nav class="nav nav-underline">
+        <a class="nav-link font-weight-bold col-3 col-md-3 col-xs-3 active" href="/">Home</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="#">Profile</a>
+        <a class="nav-link col-3 col-md-3 col-xs-3" href="/client/logout">Logout</a>
+    </nav>
+</div>
+
+<div class="container">
+  <div class="box-shadow">
+      <h2 class="text-capitalize ml-05 text-white lh-100">Referral Code for {{ .Company.Name}}</h2>
+  </div>
+    <div class="card bg-white box-shadow text-capitalize">
+        <div class="card-body pb-02 pt-02 ml-05 mr-05">
+            <p class="card-text text-capitalize">{{ .Company.Details }}</p>
+            <p class="card-text text-capitalize">For New Sign-up: {{ .Company.Signup }}</p>
+            <p class="card-text text-capitalize">For Referral: {{ .Company.Referral }}</p>
+        </div>
+    </div>
+    </br>
+    {{if .LoggedIn}}
+        <div class="card bg-white box-shadow text-capitalize">
+            <div class="card-body pb-02 pt-02 ml-05 mr-05">
+                <h5 class="card-subtitle text-capitalize">Form to share your referral code</h5>
+                <form action="/client/company/code/{{ .Company.ID}}" method="post">
+                    <div class="form-row">
+                        <div class="col-6 col-md-4 col-xs-4 mb-3">
+                            <input type="text" class="form-control" name="Text" aria-describedby="emailHelp" placeholder="Code">
+                        </div>
+                        <div class="col-6 col-md-4 col-xs-4 mb-3">
+                            <input type="text" class="form-control" name="Link" placeholder="Link">
+                        </div>
+                        <div class="col-6 col-md-4 col-xs-4">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        </br>
+                        </br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {{else}}
+        <div class="card bg-white box-shadow text-capitalize">
+            <div class="card-body pb-02 pt-02 ml-05 mr-05">
+                <h6 class="card-subtitle text-capitalize">Share your referral code</h6>
+                <a class="btn btn-outline-dark" href="{{ .Link}}" role="button" style="text-transform:none">
+                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                    Login with Google
+                </a>
+            </div>
+        </div>
+    {{end}}
+    </br>
+    <div class="card bg-white box-shadow">
+    {{ with .Codes }}
+        {{ range . }}
+          <div class="card-body">
+             <div class="row ml-05">
+             </br>
+                <div class="col-4 col-md-4 col-xs-4"><h4>{{ .Text }}</h4></div>
+                <div class="col-4 col-md-4 col-xs-4 mr-05"><h4><a href="{{ .Link}}}" class="card-link">{{ .Link }}</a></h4></div>
+             </div>
+          </div>
+        {{ end }}
+    {{ end }}
+        </br>
+    </div>
+</div>
+</body>
+</html>

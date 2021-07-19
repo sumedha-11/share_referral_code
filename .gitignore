@@ -1,0 +1,6 @@
+.DS_Store
+build/
+config/*.json
+vendor/
+common_lol.json
+.idea/
